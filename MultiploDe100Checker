@@ -1,0 +1,57 @@
+
+
+import java.util.Scanner;
+
+/**
+ * Este programa comprueba si un entero dado es múltiplo de 100.
+ * Demuestra un método reutilizable para esta comprobación y maneja varios casos extremos.
+ * 
+ * @author Estudiante Mateo Alejandro Espinosa Castro
+ */
+public class MultiploDe100Checker {
+    
+    /**
+     * Chequea si el número es un multiplo de 100.
+     * 
+     * parámetro número el entero a comprobar
+     * devuelve verdadero si el número es múltiplo de 100, falso en caso contrario
+     */
+    public static boolean isMultipleOf100(int number) {
+        // Un número es múltiplo de 100 si es divisible por 100 sin residuo
+        return number % 100 == 0;
+    }
+    
+    /**
+     * Método principal para demostrar la funcionalidad.
+     * Toma la entrada del usuario y muestra si el número es múltiplo de 100 o no.
+     * 
+     * @param args Comandos de linea (no utilizados)
+     */
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Solicitar entrada al usuario
+        System.out.print("Introduzca un número entero: ");
+        
+        // Leer entrada entera
+        int inputNumber = scanner.nextInt();
+        
+        // Verificar si la entrada es múltiplo de 100
+        if (isMultipleOf100(inputNumber)) {
+            System.out.println("multiple of 100");
+        } else {
+            System.out.println("not multiple of 100");
+        }
+        
+        // Demostrar con algunos casos de prueba
+        System.out.println("\nTest cases:");
+        int[] testCases = {0, 100, -100, 500, 99, 1000, 123};
+        
+        for (int num : testCases) {
+            System.out.println(num + " is " + 
+                (isMultipleOf100(num) ? "multiple of 100" : "not multiple of 100"));
+        }
+        
+        scanner.close();
+    }
+}
